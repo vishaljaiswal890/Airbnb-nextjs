@@ -18,7 +18,6 @@ const quotes = [
 ];
 
 export default function Home() {
-  // const router = useRouter();
   const [randomQuote, setRandomQuote] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otp, setOtp] = useState("");
@@ -35,7 +34,7 @@ export default function Home() {
   };
   const handleSubmitOtp = () => {
     // Handle OTP submission here
-    console.log("Submitting OTP:");
+    console.log("Submitting OTP:", otp);
   };
 
   return (
@@ -89,6 +88,7 @@ export default function Home() {
               {!isOtpSent && (
                 <button
                   onClick={handleContinue}
+                  disabled={!phoneNumber || phoneNumber.length !== 10} // Disable the button if phoneNumber is empty
                   className="border-2 border-sky-700 p-2 md:p-3 m-4 inline-block rounded-lg font-semibold hover:bg-sky-700 hover:text-white text-sky-700"
                 >
                   Continue
